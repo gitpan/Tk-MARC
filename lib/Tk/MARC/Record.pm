@@ -1,4 +1,4 @@
-$Tk::MARC::Record::VERSION = '0.10';
+$Tk::MARC::Record::VERSION = '0.11';
 
 package Tk::MARC::Record;
 
@@ -40,6 +40,9 @@ which handle the editing of individual fields within the record.
 
 # Revision history for Tk::MARC::Record.
 # --------------------------------------
+# 0.11 January 20, 2004
+#      - added check for missing -record
+#
 # 0.10 January 17, 2004
 #      - renamed to Tk::MARC::Record (capitalized 'Record') to better
 #        match MARC::Record and avoid confusion (thanks Andy!)
@@ -103,6 +106,7 @@ sub Populate {
     my ($self, $args) = @_;
 
     my $record = delete $args->{'-record'};
+    croak "Missing -record" unless $record;
     croak "Not a MARC::Record" unless (ref($record) eq "MARC::Record");
 
     $self->SUPER::Populate($args);

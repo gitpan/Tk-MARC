@@ -1,10 +1,10 @@
-use Test::More tests => 10;
+use Test::More tests => 13;
 
 use Tk;
 use strict;
 
 use_ok( 'Tk::MARC::Subfield' );
-is( $Tk::MARC::Subfield::VERSION,'0.7', 'Ok' );
+is( $Tk::MARC::Subfield::VERSION,'0.8', 'Ok' );
 
 my $mw = Tk::MainWindow->new();
 $mw->geometry('+10+10');
@@ -28,3 +28,12 @@ my $sf1 = $mw->MARC_Subfield(-field => '001',
 my $subfield1 = $sf1->get();
 ok(not ref $subfield1);
 ok($subfield1 eq 'PLS1234', 'Returns correct value for field < 010');
+
+eval { $sf0 = $mw->MARC_Subfield(-field => '245', -label => 'a', -blarg => 'foo') };
+ok($@ =~ /Bad option \`-blarg\'/, 'Correctly handles bad option');
+
+eval { $sf0 = $mw->MARC_Subfield() };
+ok($@ =~ /Missing -field/, 'Correctly handles missing -field');
+
+eval { $sf0 = $mw->MARC_Subfield(-field => '245') };
+ok($@ =~ /Missing -label/, 'Correctly handles missing -label');

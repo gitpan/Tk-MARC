@@ -1,4 +1,4 @@
-$Tk::MARC::Field::VERSION = '0.10';
+$Tk::MARC::Field::VERSION = '0.11';
 
 package Tk::MARC::Field;
 
@@ -45,6 +45,10 @@ a component of Tk::MARC::Editor.
 
 # Revision history for Tk::MARC::field.
 # -------------------------------------
+# 0.11 January 20, 2004
+#      - added check for missing -field
+#      - added check for missing -subfields
+#
 # 0.10 January 17, 2004
 #      - renamed to Tk::MARC::Field (capitalized 'Field') to better
 #        match MARC::Field and avoid confusion (thanks Andy!)
@@ -112,7 +116,8 @@ sub Populate {
 	croak "Not a MARC::Field" unless (ref($field) eq 'MARC::Field');
 	$self->{MARCField} = $field;
     } else {
-	croak "Missing tag" unless (defined $tag);
+	croak "Missing -tag" unless (defined $tag);
+	croak "Missing -subfields" unless (defined $subfields);
 	$self->{MARCField} = MARC::Field->new( $tag,
 					       $ind1,
 					       $ind2,

@@ -1,11 +1,11 @@
-use Test::More tests => 6;
+use Test::More tests => 8;
 
 use Tk;
 use MARC::Record;
 use strict;
 
 use_ok( 'Tk::MARC::Leader' );
-is( $Tk::MARC::Leader::VERSION,'0.2', 'Ok' );
+is( $Tk::MARC::Leader::VERSION,'0.3', 'Ok' );
 
 # Build a (minimal) MARC record
 my $marc = MARC::Record->new();
@@ -30,3 +30,8 @@ ok(ref $ldr, "Tk::MARC::Leader");
 my $leader = $ldr->get();
 ok($leader eq '01148cam  220325 a 4500', 'Returns correct leader');
 
+eval { $ldr = $mw->MARC_Leader(-record => $marc, -blarg => 'foo')};
+ok($@ =~ /Bad option \`-blarg\'/, 'Correctly handles bad option');
+
+eval { $ldr = $mw->MARC_Leader() };
+ok($@ =~ /Missing -record/, 'Correctly handles missing -record');

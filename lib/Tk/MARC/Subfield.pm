@@ -1,4 +1,4 @@
-$Tk::MARC::Subfield::VERSION = '0.7';
+$Tk::MARC::Subfield::VERSION = '0.8';
 
 package Tk::MARC::Subfield;
 
@@ -40,6 +40,10 @@ a component of Tk::MARC::Field.
 
 # Revision history for Tk::MARC::Subfield.
 # ----------------------------------------
+# 0.8  January 20, 2004
+#      - now uses Carp
+#      - croak on missing -field or missing -label
+#
 # 0.7  January 17, 2004
 #      - renamed to Tk::MARC::Subfield (capitalized 'Subfield')
 #        to be consistant with Tk::MARC::Field
@@ -67,6 +71,7 @@ a component of Tk::MARC::Field.
 use Tk::widgets;
 use base qw/Tk::Frame/;
 use MARC::Descriptions;
+use Carp;
 use strict;
 
 Construct Tk::Widget 'MARC_Subfield';
@@ -85,9 +90,9 @@ sub Populate {
     my ($self, $args) = @_;
 
     my $field = delete $args->{'-field'};
-    $field = '245' unless (defined $field);
+    croak "Missing -field" unless (defined $field);
     my $label = delete $args->{'-label'};
-    $label = 'label' unless (defined $label);
+    croak "Missing -label" unless (defined $label);
     my $value = delete $args->{'-value'};
     $value = 'New subfield' unless (defined $value);
 

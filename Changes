@@ -1,5 +1,15 @@
 Revision history for Tk::MARC.
 ------------------------------
+1.4 January 20, 2004
+    - croak on missing -record in Tk::MARC::Record
+    - croak on missing -field or -tag / -subfields
+      in Tk::MARC::Field
+    - croak on missing -field and -label in
+      Tk::MARC::Subfield
+    - croak on missing -field in Tk::MARC::Indicators
+    - croak on missing -record in Tk::MARC::Leader
+    - more tests
+
 1.3 January 19, 2004
     - added a whack of test cases
 

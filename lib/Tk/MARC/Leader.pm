@@ -1,4 +1,4 @@
-$Tk::MARC::Leader::VERSION = '0.2';
+$Tk::MARC::Leader::VERSION = '0.3';
 
 package Tk::MARC::Leader;
 
@@ -42,6 +42,9 @@ a component of Tk::MARC::record.
 
 # Revision history for Tk::MARC::Leader.
 # --------------------------------------
+# 0.3  January 20, 2004
+#      - croak on missing -record
+#
 # 0.2  January 17, 2004
 #      - renamed to Tk::MARC::Leader (capitalized 'Leader')
 #        to be consistant with Tk::MARC::Field
@@ -74,6 +77,7 @@ sub Populate {
     $self->SUPER::Populate($args);
     $self->{"fixed_font"} = "-adobe-courier-medium-r-normal--14-100-75-75-m-60-iso8859-2";
 
+    croak "Missing -record" unless defined($record);
     croak "Not a MARC::Record" unless (ref($record) eq "MARC::Record");
     $self->{VALUE} = $record->leader();
     $self->{ORIGINAL_VALUE} = $self->{VALUE};

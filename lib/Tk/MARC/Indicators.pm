@@ -1,4 +1,4 @@
-$Tk::MARC::Indicators::VERSION = '0.3';
+$Tk::MARC::Indicators::VERSION = '0.4';
 
 package Tk::MARC::Indicators;
 
@@ -34,6 +34,9 @@ a component of Tk::MARC::field.
 
 # Revision history for Tk::MARC::Indicators.
 # ------------------------------------------
+# 0.4  January 20, 2004
+#      - croak on missing -field
+#
 # 0.3  January 17, 2004
 #      - renamed to Tk::MARC::Indicators (capitalized 'Indicators')
 #        to be consistant with Tk::MARC::Field
@@ -66,7 +69,7 @@ sub Populate {
     my ($self, $args) = @_;
 
     my $field = delete $args->{'-field'};
-    $field = '245' unless (defined $field);
+    croak "Missing -field" unless (defined $field);
     my $ind1 = delete $args->{'-ind1'};
     $ind1 = ' ' unless (defined $ind1);
     my $ind2 = delete $args->{'-ind2'};

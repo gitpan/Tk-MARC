@@ -1,10 +1,10 @@
-use Test::More tests => 8;
+use Test::More tests => 11;
 
 use Tk;
 use strict;
 
 use_ok( 'Tk::MARC::Record' );
-is( $Tk::MARC::Record::VERSION,'0.10', 'Ok' );
+is( $Tk::MARC::Record::VERSION,'0.11', 'Ok' );
 
 # Build a (minimal) MARC record
 my $marc = MARC::Record->new();
@@ -26,4 +26,13 @@ ok(ref $marc2, "MARC::Record");
 
 ok( $marc != $marc2, 'Correctly does not return reference to original' );
 ok( $marc->as_formatted eq $marc2->as_formatted, 'Returned and original match content' );
+
+eval { $r0 = $mw->MARC_Record(-record => 'foo') };
+ok($@ =~ /Not a MARC::Record/, 'Correctly handles non-MARC -record');
+
+eval { $r0 = $mw->MARC_Record(-record => $marc, -blarg => 'foo') };
+ok($@ =~ /Bad option \`-blarg\'/, 'Correctly handles bad option');
+
+eval { $r0 = $mw->MARC_Record() };
+ok($@ =~ /Missing -record/, 'Correctly handles missing -record');
 
