@@ -1,5 +1,5 @@
 Changes
-lib/Tk-MARC.pm
+lib/Tk/MARC.pm
 lib/Tk/MARC/Leader.pm
 lib/Tk/MARC/Indicators.pm
 lib/Tk/MARC/Subfield.pm
@@ -28,6 +28,7 @@ pl/example_record_2.pl
 pl/example_record_3.pl
 pl/example_record_4.pl
 pl/marvin.pl
+pl/muse.pl
 pl/tcfm.mrc
 TODO
 META.yml                                Module meta-data (added by MakeMaker)

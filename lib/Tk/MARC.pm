@@ -1,13 +1,15 @@
-package Tk-MARC;
+package Tk::MARC;
 
-our $VERSION = '1.1';
+our $VERSION = '1.2';
+
+use Tk::MARC::Record;
 
 1;
 __END__
 
 =head1 NAME
 
-Tk-MARC - Perl/Tk widget set for editing MARC::Records
+Tk::MARC - Perl/Tk widget set for editing MARC::Records
 
 =head1 SYNOPSIS
 

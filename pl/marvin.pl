@@ -7,7 +7,7 @@
 BEGIN{unshift @INC, "./blib/lib"}
 
 use Tk;
-use Tk::MARC::Record;
+use Tk::MARC;
 use MARC::Record;
 use MARC::File::USMARC;
 

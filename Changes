@@ -1,5 +1,13 @@
 Revision history for Tk::MARC.
 ------------------------------
+1.2 January 18, 2004
+    - moved the confusing lib/Tk-MARC.pm to lib/Tk/MARC.pm
+    - had the documentation-only MARC.pm 'use Tk::MARC::Record',
+      so users can just say 'use Tk::MARC' rather than
+      'use Tk::MARC::Record'
+    - added another sample app: 
+      pl/muse.pl - the MARC un-optimized sample editor
+
 1.1 January 17, 2004
     - renamed Tk::MARC::record     to Tk::MARC::Record
     - renamed Tk::MARC::field      to Tk::MARC::Field

@@ -17,7 +17,7 @@ sub filecheck {
 &WriteMakefile(
 	'NAME'		=> 'Tk::MARC',
 	'DISTNAME'	=> 'Tk-MARC',
-	'VERSION_FROM'	=> 'lib/Tk-MARC.pm', # finds $VERSION
+	'VERSION_FROM'	=> 'lib/Tk/MARC.pm', # finds $VERSION
 	'PMLIBDIRS'	=> [ qw( lib/ ) ],
 	'AUTHOR'	=> 'David Christensen <DChristensenSPAMLESS@westman.wave.ca>',
 	'PREREQ_PM'	=> {
@@ -26,7 +26,7 @@ sub filecheck {
 			   'Tk' => 0,
 			   'MARC::Descriptions' => 0,
 			   },
-#	'ABSTRACT_FROM' => 'lib/Foo.pm',
+	'ABSTRACT_FROM' => 'lib/Tk/MARC.pm',
 	'EXE_FILES'	=> [ qw( ) 
 			     ],
 	'dist'		=> {
