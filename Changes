@@ -1,0 +1,13 @@
+Revision history for Tk::MARC.
+------------------------------
+1.1 January 17, 2004
+    - renamed Tk::MARC::record     to Tk::MARC::Record
+    - renamed Tk::MARC::field      to Tk::MARC::Field
+    - renamed Tk::MARC::subfield   to Tk::MARC::Subfield
+    - renamed Tk::MARC::indicators to Tk::MARC::Indicators
+    - renamed Tk::MARC::leader     to Tk::MARC::Leader
+
+1.0 January 16, 2004
+    - original version, slurped the individual Tk::MARC::*
+      packages into one module.
+
