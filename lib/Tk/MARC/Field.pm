@@ -280,6 +280,9 @@ sub get {
 				    $self->{data}->get(),
 				    );
 	} else {
+	    #
+	    # Tag >= 010
+	    #
 	    my $sf = undef;
 	    my $i = -1;
 	    

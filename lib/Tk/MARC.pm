@@ -1,6 +1,6 @@
 package Tk::MARC;
 
-our $VERSION = '1.2';
+our $VERSION = '1.3';
 
 use Tk::MARC::Record;
 

@@ -1,5 +1,8 @@
 Revision history for Tk::MARC.
 ------------------------------
+1.3 January 19, 2004
+    - added a whack of test cases
+
 1.2 January 18, 2004
     - moved the confusing lib/Tk-MARC.pm to lib/Tk/MARC.pm
     - had the documentation-only MARC.pm 'use Tk::MARC::Record',
