@@ -30,7 +30,7 @@ ok(not ref $subfield1);
 ok($subfield1 eq 'PLS1234', 'Returns correct value for field < 010');
 
 eval { $sf0 = $mw->MARC_Subfield(-field => '245', -label => 'a', -blarg => 'foo') };
-ok($@ =~ /Bad option \`-blarg\'/, 'Correctly handles bad option');
+ok($@ =~ /(Bad|unknown) option (\`|\")-blarg(\'|\")/, 'Correctly handles bad option');
 
 eval { $sf0 = $mw->MARC_Subfield() };
 ok($@ =~ /Missing -field/, 'Correctly handles missing -field');

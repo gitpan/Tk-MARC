@@ -27,7 +27,7 @@ eval { $i0 = $mw->MARC_Indicators(-field => '245',
 				  -blarg => 'foo'
 				  ) 
       };
-ok($@ =~ /Bad option \`-blarg\'/, 'Correctly handles bad option');
+ok($@ =~ /(Bad|unknown) option (\`|\")-blarg(\'|\")/, 'Correctly handles bad option');
 
 eval { $i0 = $mw->MARC_Indicators() };
 ok($@ =~ /Missing -field/, 'Correctly handles missing -field');

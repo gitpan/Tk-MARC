@@ -27,7 +27,7 @@ eval { $f0 = $mw->MARC_Field(-field => 'foo') };
 ok($@ =~ /Not a MARC::Field/, 'Correctly handles non-MARC::Field -field');
 
 eval { $f0 = $mw->MARC_Field(-field => $field, -blarg => 'foo') };
-ok($@ =~ /Bad option \`-blarg\'/, 'Correctly handles bad option');
+ok($@ =~ /(Bad|unknown) option (\`|\")-blarg(\'|\")/, 'Correctly handles bad option');
 
 eval { $f0 = $mw->MARC_Field() };
 ok($@ =~ /Missing -tag/, 'Correctly handles missing -tag');

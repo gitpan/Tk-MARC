@@ -1,5 +1,8 @@
 Revision history for Tk::MARC.
 ------------------------------
+1.5 January 22, 2004
+    - fixed test cases for Sun(SPARC)/Solaris (thanks, Charles!)
+
 1.4 January 20, 2004
     - croak on missing -record in Tk::MARC::Record
     - croak on missing -field or -tag / -subfields

@@ -31,7 +31,7 @@ my $leader = $ldr->get();
 ok($leader eq '01148cam  220325 a 4500', 'Returns correct leader');
 
 eval { $ldr = $mw->MARC_Leader(-record => $marc, -blarg => 'foo')};
-ok($@ =~ /Bad option \`-blarg\'/, 'Correctly handles bad option');
+ok($@ =~ /(Bad|unknown) option (\`|\")-blarg(\'|\")/, 'Correctly handles bad option');
 
 eval { $ldr = $mw->MARC_Leader() };
 ok($@ =~ /Missing -record/, 'Correctly handles missing -record');

@@ -31,7 +31,7 @@ eval { $r0 = $mw->MARC_Record(-record => 'foo') };
 ok($@ =~ /Not a MARC::Record/, 'Correctly handles non-MARC -record');
 
 eval { $r0 = $mw->MARC_Record(-record => $marc, -blarg => 'foo') };
-ok($@ =~ /Bad option \`-blarg\'/, 'Correctly handles bad option');
+ok($@ =~ /(Bad|unknown) option (\`|\")-blarg(\'|\")/, 'Correctly handles bad option');
 
 eval { $r0 = $mw->MARC_Record() };
 ok($@ =~ /Missing -record/, 'Correctly handles missing -record');
